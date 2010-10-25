@@ -1,0 +1,1 @@
+default[:config][:firewall][:rules] = Array.new
