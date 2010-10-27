@@ -18,6 +18,20 @@
 #
 
 
+=begin 
+
+This cookbook was created to install shorewall on ubuntu and iterate through a firewall node attribute. 
+More information and a writeup about this cookbook can be found at:
+
+http://densone.com
+
+This cookbook by default is setup to work on RackSpace cloud. RackSpace cloud has an internal and an external interface. 
+The policy allow eth1 the internal interface to speak to any ip address. You may want to template the other shorewall config files if 
+you plan on deploying this cookbook to other places. This would be a simple task.
+
+=end
+
+
 package "shorewall"
 
 
@@ -73,5 +87,5 @@ service "shorewall" do
                                  :cookbook_file => "#{config_path}/interfaces", 
                                  :cookbook_file => "#{config_path}/zones", 
                                  :cookbook_file => "#{config_path}/policy", 
-                                 :template => "#{config_path}/rules"), :immediately
+                                 :template      => "#{config_path}/rules"), :immediately
 end
